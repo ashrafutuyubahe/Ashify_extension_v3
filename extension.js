@@ -1,28 +1,52 @@
 const vscode = require('vscode');
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
+    const disposable = vscode.commands.registerCommand('ashify.greetingsFromAshify', function () {
+        const panel = vscode.window.createWebviewPanel(
+            'ashifyWebview',
+            'Ashify Welcome', 
+            vscode.ViewColumn.One, 
+            {
+                enableScripts: true 
+            }
+        );
 
-	
-	console.log('welcome  to ashify , relax by listening music and streaming without leaving vscode!');
+      
+        panel.webview.html = getWebviewContent();
+    });
 
-	const disposable = vscode.commands.registerCommand('ashify.greetingsFromAshify', function () {
-		
-		vscode.window.showInformationMessage('welcome  to ashify , relax by listening music and streaming without leaving vscode!');
-	});
-
-	context.subscriptions.push(disposable);
+    context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
+function getWebviewContent() {
+    return `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Ashify Welcome</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1 { color: #007acc; }
+                p { color: #333; }
+                button { padding: 10px 20px; font-size: 16px; }
+            </style>
+        </head>
+        <body>
+            <h1>Welcome to Ashify!</h1>
+            <p>Relax by listening to music and streaming without leaving VS Code.</p>
+            <button onclick="alert('Enjoy your stay!')">Enjoy your stay</button>
+        </body>
+        </html>`;
+}
+
 function deactivate() {}
 
 module.exports = {
-	activate,
-	deactivate
-}
+    activate,
+    deactivate
+};
