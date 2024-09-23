@@ -102,14 +102,12 @@
         <button onclick="alert('Enjoy your stay!')">Enjoy your stay</button>
     </div>
 
-    <script>
-        // Simulate loading time
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            }, 2000); // Adjust time as needed
-        };
-    </script>
+  
+    <div id="videos">
+        <h2>Latest YouTube Videos</h2>
+        <ul id="video-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

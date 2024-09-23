@@ -1,4 +1,5 @@
 API_KEY=AIzaSyA0BpOwZ-7GNb2BXdtYoaZoT2dG1bSckug
 db_password=D8BU60lBYGgjjiLr
 user_name=tuyubaheashrafu2023
+db_name=AshifExtensionDb
 connection_string=mongodb+srv://<db_username>:<db_password>@ashifextensiondb.7hpss.mongodb.net/?retryWrites=true&w=majority&appName=AshifExtensionDb
