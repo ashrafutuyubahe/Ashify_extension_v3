@@ -8,3 +8,9 @@ vsc-extension-quickstart.md
 **/*.map
 **/eslint.config.mjs
 **/.vscode-test.*
+
+// Replace with your actual API key
+const API_KEY = 'AIzaSyA0BpOwZ-7GNb2BXdtYoaZoT2dG1bSckug';
+
+// Replace with the channel ID you want to fetch videos from
+const CHANNEL_ID = 'UC_x5XG1OV2P6uZZ5FSM9Ttw'; // Example: Google Developers channel ID

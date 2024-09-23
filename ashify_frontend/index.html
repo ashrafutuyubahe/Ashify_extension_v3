@@ -11,103 +11,107 @@
             padding: 0;
             height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            background-color: #1e1e1e; /* Dark background color similar to VS Code */
-            color: #dcdcdc; /* Light text color for contrast */
+            background-color: #1e1e1e;
+            color: #dcdcdc;
         }
 
         h1 {
-            color: #007acc; /* VS Code accent color */
+            color: #007acc;
         }
 
-        p {
-            color: #dcdcdc; /* Light text color for readability */
+        input[type="text"] {
+            padding: 10px;
+            margin: 20px;
+            width: 300px;
+            border: 1px solid #007acc;
+            border-radius: 5px;
         }
 
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #007acc; /* VS Code accent color */
-            color: #ffffff; /* White text color for button */
+            background-color: #007acc;
+            color: #ffffff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 5px;
         }
 
         button:hover {
-            background-color: #005f8c; /* Darker shade for hover effect */
+            background-color: #005f8c;
         }
 
-        /* Loader styles */
-        #loader {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: transparent;
+        #video-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            width: 80%;
+        }
+
+        #video-list li {
+            margin: 10px 0;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
 
+        #video-list img {
+            width: 120px;
+            height: auto;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        #video-player {
+            display: none;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 640px;
+        }
+
+      
         .loader {
+            display: none; 
             width: 20px;
             aspect-ratio: 1;
             border-radius: 50%;
-            background: #007acc; /* VS Code accent color */
-            box-shadow: 0 0 0 0 #007acc;
+            background: #000;
+            box-shadow: 0 0 0 0 #0004;
             animation: l2 1.5s infinite linear;
             position: relative;
         }
-
         .loader:before,
         .loader:after {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            box-shadow: 0 0 0 0 #007acc;
+            box-shadow: 0 0 0 0 #0004;
             animation: inherit;
             animation-delay: -0.5s;
         }
-
         .loader:after {
             animation-delay: -1s;
         }
-
         @keyframes l2 {
-            100% {
-                box-shadow: 0 0 0 40px transparent;
-            }
-        }
-
-        /* Hide the content initially */
-        #content {
-            display: none;
-            text-align: center;
+            100% {box-shadow: 0 0 0 40px #0000;}
         }
     </style>
 </head>
 <body>
-    <div id="loader">
-        <div class="loader"></div>
-    </div>
-    <div id="content">
-        <h1>Welcome to Ashify!</h1>
-        <p>Relax by listening to music and streaming without leaving VS Code.</p>
-        <button onclick="alert('Enjoy your stay!')">Enjoy your stay</button>
-    </div>
+    <h1>Welcome to Ashify!</h1>
+    <input type="text" id="searchQuery" placeholder="Search for videos...">
+    <button onclick="searchVideos('all')">Search Videos</button>
+    <button onclick="searchVideos('music')">Search Music</button>
+    
+    <div class="loader" id="loader"></div>
+    
+    <ul id="video-list"></ul>
+    
+    <iframe id="video-player" width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
-  
-    <div id="videos">
-        <h2>Latest YouTube Videos</h2>
-        <ul id="video-list"></ul>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="./js/scripts.js"></script>
 </body>
 </html>

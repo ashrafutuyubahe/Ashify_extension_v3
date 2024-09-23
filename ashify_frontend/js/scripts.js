@@ -1,52 +1,67 @@
-// Replace with your actual API key
-const API_KEY = 'AIzaSyA0BpOwZ-7GNb2BXdtYoaZoT2dG1bSckug';
+const API_KEY = 'AIzaSyA0BpOwZ-7GNb2BXdtYoaZoT2dG1bSckug'; // Replace with your API key
 
-// Replace with the channel ID you want to fetch videos from
-const CHANNEL_ID = 'UC_x5XG1OV2P6uZZ5FSM9Ttw'; // Example: Google Developers channel ID
-
-// Number of latest videos to fetch
-const MAX_RESULTS = 5;
-
-// Fetch the latest videos from YouTube
-async function fetchLatestVideos() {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
-
+async function fetchVideos(query, type) {
+    const searchType = type === 'music' ? 'video' : 'video'; // Both will fetch video type
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=${searchType}&videoCategoryId=${type === 'music' ? '10' : ''}&maxResults=10&key=${API_KEY}`;
+    
     try {
         const response = await fetch(url);
         const data = await response.json();
-
-        const videoList = document.getElementById('video-list');
-        videoList.innerHTML = ''; // Clear any existing content
-
-        data.items.forEach(item => {
-            if (item.id.kind === 'youtube#video') {
-                const videoId = item.id.videoId;
-                const title = item.snippet.title;
-                const thumbnail = item.snippet.thumbnails.default.url;
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-                const listItem = document.createElement('li');
-
-                const thumbnailImg = document.createElement('img');
-                thumbnailImg.src = thumbnail;
-                thumbnailImg.alt = title;
-
-                const link = document.createElement('a');
-                link.href = videoUrl;
-                link.target = '_blank';
-                link.textContent = title;
-
-                listItem.appendChild(thumbnailImg);
-                listItem.appendChild(document.createTextNode(' ')); // Space between image and link
-                listItem.appendChild(link);
-
-                videoList.appendChild(listItem);
-            }
-        });
+        return data.items.map(item => ({
+            title: item.snippet.title,
+            url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+            thumbnail: item.snippet.thumbnails.default.url,
+            videoId: item.id.videoId
+        }));
     } catch (error) {
         console.error('Error fetching videos:', error);
+        return [];
     }
 }
 
-// Call the function when the page loads
-window.onload = fetchLatestVideos;
+async function displayVideos(videos) {
+    const videoList = document.getElementById("video-list");
+    videoList.innerHTML = ''; // Clear previous results
+    
+    videos.forEach(video => {
+        const listItem = document.createElement("li");
+        const thumbnail = document.createElement("img");
+        
+        thumbnail.src = video.thumbnail;
+        thumbnail.alt = video.title;
+        thumbnail.onclick = () => playVideo(video.videoId); // Set click handler for playing video
+        
+        const title = document.createElement("span");
+        title.textContent = video.title;
+        
+        listItem.appendChild(thumbnail);
+        listItem.appendChild(title);
+        videoList.appendChild(listItem);
+    });
+}
+
+function playVideo(videoId) {
+    const videoPlayer = document.getElementById("video-player");
+    videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    videoPlayer.style.display = 'block'; // Show the video player
+}
+
+async function searchVideos(type) {
+    const query = document.getElementById("searchQuery").value;
+    
+    if (!query) {
+        alert('Please enter a search term');
+        return;
+    }
+
+    const loader = document.getElementById("loader");
+    loader.style.display = "block"; // Show the loader
+
+    const videos = await fetchVideos(query, type);
+    
+    // Display results
+    displayVideos(videos);
+    
+    // Hide loader
+    loader.style.display = "none";
+}
