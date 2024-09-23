@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashify Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1e1e1e; /* Dark background color similar to VS Code */
+            color: #dcdcdc; /* Light text color for contrast */
+        }
+
+        h1 {
+            color: #007acc; /* VS Code accent color */
+        }
+
+        p {
+            color: #dcdcdc; /* Light text color for readability */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007acc; /* VS Code accent color */
+            color: #ffffff; /* White text color for button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f8c; /* Darker shade for hover effect */
+        }
+
+        /* Loader styles */
+        #loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 20px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #007acc; /* VS Code accent color */
+            box-shadow: 0 0 0 0 #007acc;
+            animation: l2 1.5s infinite linear;
+            position: relative;
+        }
+
+        .loader:before,
+        .loader:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: 0 0 0 0 #007acc;
+            animation: inherit;
+            animation-delay: -0.5s;
+        }
+
+        .loader:after {
+            animation-delay: -1s;
+        }
+
+        @keyframes l2 {
+            100% {
+                box-shadow: 0 0 0 40px transparent;
+            }
+        }
+
+        /* Hide the content initially */
+        #content {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <div class="loader"></div>
+    </div>
+    <div id="content">
+        <h1>Welcome to Ashify!</h1>
+        <p>Relax by listening to music and streaming without leaving VS Code.</p>
+        <button onclick="alert('Enjoy your stay!')">Enjoy your stay</button>
+    </div>
+
+    <script>
+        // Simulate loading time
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }, 2000); // Adjust time as needed
+        };
+    </script>
+</body>
+</html>

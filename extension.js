@@ -1,4 +1,6 @@
 const vscode = require('vscode');
+const path = require('path');
+const fs = require('fs');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -14,34 +16,14 @@ function activate(context) {
             }
         );
 
-      
-        panel.webview.html = getWebviewContent();
+        
+        const htmlFilePath = path.join(context.extensionPath, './ashify_frontend', 'index.html');
+        const htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
+
+        panel.webview.html = htmlContent;
     });
 
     context.subscriptions.push(disposable);
-}
-
-function getWebviewContent() {
-    return `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Ashify Welcome</title>
-            <style>
-                body { font-family: Arial, sans-serif; margin: 20px; }
-                h1 { color: #007acc; }
-                p { color: #333; }
-                button { padding: 10px 20px; font-size: 16px; }
-            </style>
-        </head>
-        <body>
-            <h1>Welcome to Ashify!</h1>
-            <p>Relax by listening to music and streaming without leaving VS Code.</p>
-            <button onclick="alert('Enjoy your stay!')">Enjoy your stay</button>
-        </body>
-        </html>`;
 }
 
 function deactivate() {}
