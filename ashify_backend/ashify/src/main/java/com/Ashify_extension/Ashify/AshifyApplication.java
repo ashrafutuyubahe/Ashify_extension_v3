@@ -8,6 +8,10 @@ public class AshifyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AshifyApplication.class, args);
+		System.out.println("hello");
+		
+		
+	   
 	}
 
 }
