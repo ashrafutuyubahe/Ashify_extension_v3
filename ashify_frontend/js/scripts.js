@@ -1,8 +1,7 @@
 const API_KEY = 'AIzaSyA0BpOwZ-7GNb2BXdtYoaZoT2dG1bSckug'; // Replace with your API key
 
 async function fetchVideos(query, type) {
-    const searchType = type === 'music' ? 'video' : 'video'; // Both will fetch video type
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=${searchType}&videoCategoryId=${type === 'music' ? '10' : ''}&maxResults=10&key=${API_KEY}`;
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&videoCategoryId=10&maxResults=10&key=${API_KEY}`;
     
     try {
         const response = await fetch(url);
@@ -25,25 +24,35 @@ async function displayVideos(videos) {
     
     videos.forEach(video => {
         const listItem = document.createElement("li");
-        const thumbnail = document.createElement("img");
         
+        const thumbnail = document.createElement("img");
         thumbnail.src = video.thumbnail;
         thumbnail.alt = video.title;
-        thumbnail.onclick = () => playVideo(video.videoId); // Set click handler for playing video
+        thumbnail.onclick = () => playAudio(video.videoId); // Play audio on click
         
         const title = document.createElement("span");
         title.textContent = video.title;
-        
+
         listItem.appendChild(thumbnail);
         listItem.appendChild(title);
         videoList.appendChild(listItem);
     });
 }
 
-function playVideo(videoId) {
-    const videoPlayer = document.getElementById("video-player");
-    videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    videoPlayer.style.display = 'block'; // Show the video player
+function playAudio(videoId) {
+    const audioPlayer = document.createElement("audio");
+    audioPlayer.src = `https://www.youtube.com/watch?v=${videoId}`; // You can use a specific audio URL if available
+    audioPlayer.controls = true;
+    audioPlayer.autoplay = true;
+
+    // Clear existing audio player and add the new one
+    const existingPlayer = document.getElementById("audio-player");
+    if (existingPlayer) {
+        existingPlayer.remove();
+    }
+    
+    audioPlayer.id = "audio-player";
+    document.body.appendChild(audioPlayer);
 }
 
 async function searchVideos(type) {
