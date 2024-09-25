@@ -9,7 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId; // Renamed to follow Java naming conventions
+    private int userId;
 
     @Column(name = "user_name", nullable = false)
     private String userName;
@@ -19,7 +19,7 @@ public class User {
 
     private boolean hasPlaylist;
 
-     @ElementCollection 
+     @ElementCollection
     private List<String> musicPlayList;
 
     
