@@ -13,15 +13,16 @@ public class GetMessageFromAshify {
     
     private final GetMessageService getMessageService;
 
-    // Constructor-based dependency injection
+    
     @Autowired
     public GetMessageFromAshify(GetMessageService getMessageService) {
         this.getMessageService = getMessageService;
     }
 
-    // Endpoint to get the message
-    @GetMapping("/message")  
+
+    @GetMapping("/Welcome_message")  
     public String getMessage() {
         return getMessageService.getMessage();
     }
+    
 }
