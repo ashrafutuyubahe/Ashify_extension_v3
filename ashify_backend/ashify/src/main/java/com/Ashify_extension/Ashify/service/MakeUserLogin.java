@@ -9,6 +9,9 @@ public class MakeUserLogin {
 
     public void  handleUserLogin(){
         var user= new User();
+        String userEmail= user.getUserEmail();
+        String userName=user.getUserName();
+
 
     }
 }
