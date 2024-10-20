@@ -17,7 +17,7 @@ function activate(context) {
         );
 
         
-        const htmlFilePath = path.join(context.extensionPath, './ashify_frontend', 'index.html');
+        const htmlFilePath = path.join(context.extensionPath, './ashify_frontend/ashify_front/dist', 'index.html');
         const htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
 
         panel.webview.html = htmlContent;
