@@ -16,16 +16,17 @@ function activate(context) {
             }
         );
 
-        // Load the index.html file
+      
         const htmlFilePath = path.join(context.extensionPath, 'ashify_frontend', 'ashify_front', 'dist', 'index.html');
         let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
 
-        // Update paths for assets in the html content
+       
         const assetUri = panel.webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'ashify_frontend', 'ashify_front', 'dist', 'assets')));
         htmlContent = htmlContent.replace(/(src|href)="(\/?assets\/[^"]*)"/g, (match, p1, p2) => {
             return `${p1}="${assetUri}/${path.basename(p2)}"`;
         });
 
+        
         panel.webview.html = htmlContent;
     });
 
