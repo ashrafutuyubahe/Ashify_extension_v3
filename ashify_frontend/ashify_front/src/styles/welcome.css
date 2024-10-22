@@ -1,19 +1,42 @@
 .welcome-container {
     text-align: center;
-    margin-top: 50px;
-    background:1E1E1E;
+    background-color: #1E1E1E; 
+    height: 100vh; 
 
   }
   
-  .spotify-icon {
-    font-size: 50px;
-    color: #1DB954; 
+  .spotify-button :hover{
+    cursor: pointer;
+  }
+  .spotify-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    border-radius: 0.8rem;
+    background: #000;
+  }
+  
+  .spotify-button:hover {
+    transform: scale(1.1);
   }
   
   .welcome-heading {
-    font-size: 24px;
-    color: #333;
-    margin-top: 25px;
+     font-size: 4rem;
+     font-family: 'Courier New', Courier, monospace;
     color: white;
+   margin-top: 10rem ;
+  }
+  
+  .spotify-icon {
+    font-size: 80px;
+    color: #1DB954;
+    margin: 1rem;
+  }
+
+  .icon_text{
+    color: white;
+    font-size: 2rem;
+    margin: 2rem;
   }
   
