@@ -1,6 +1,7 @@
 import React from "react";
-import { FaUser, FaSearch } from "react-icons/fa"; // Import both icons
+import { FaUser, FaSearch } from "react-icons/fa";
 import "../styles/dashboard.css";
+import card_image from "../assets/images/card_image.jpeg";
 
 const DashBoard = () => {
   return (
@@ -12,16 +13,108 @@ const DashBoard = () => {
             <input
               type="text"
               placeholder="Search any music..."
-              className=" search_text bg-transparent  focus:outline-none text-white w-full"
+              className="search_text bg-transparent focus:outline-none text-white w-full"
             />
-            <FaSearch className=" search_icon text-gray-400 text-lg mr-2" />
+            <FaSearch className="search_icon text-gray-400 text-lg mr-2" />
           </div>
-
           <FaUser className="text-white text-4xl cursor-pointer" />
         </div>
         <div className="DashBoard_Section_container">
-            <div className="playList_section"></div>
-            <div className="popular_music_section"></div>
+          <div className="playList_section">
+
+          <div className="playlistActions">
+          <h2 id="playlist_text"> Your playlists</h2>
+          <FaSearch className="search_icon_playlist " />
+           <span id="add_playlist_button">+</span>
+
+          </div>
+          <div className="playlists">
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            <div className="user_playlist">
+             <img  className="card_image" src={card_image} alt="image_card" />
+              <div className="playlist_details">
+              <h4 className="liked_songs_text">Liked Songs</h4>
+              <h4 className="playlist_songs">play list .8 songs</h4>
+              </div>
+            </div>
+            
+           
+            </div>  
+          </div>
+          <div className="popular_music_section">
+            <h3 id="popula_music_text">Popular Music</h3>
+            <div className="popular_music_container">
+              <div className="card_container">
+                <div className="music_card"></div>
+                <h5 className="artist_name">HEIS Rema</h5>
+              </div>
+              <div className="card_container">
+                <div className="music_card"></div>
+                <h5 className="artist_name">Harris J.</h5>
+              </div>
+              <div className="card_container">
+                <div className="music_card"></div>
+                <h5 className="artist_name">Maher Zain</h5>
+              </div>
+            </div>
+            <div className="Recenty_played_section">
+              <h3 id="Recenty_played_text">Recenty Played</h3>
+              <div className="card_container">
+                <div className="music_card"></div>
+                <h5 className="artist_name">Harris J.</h5>
+              </div>
+              <div className="card_container">
+                <div className="music_card"></div>
+                <h5 className="artist_name">HEIS Rema</h5>
+              </div>
+              <div className="card_container">
+                <div className="music_card"></div>
+                <h5 className="artist_name">Maher Zain</h5>
+              </div>
+            </div>
+          </div>
+          <div></div>
         </div>
       </div>
     </>

@@ -1,80 +1,189 @@
 .search_container {
-    padding: 16px;
-    background-color: #1d1c1c;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #333;
-    font-size: 1.5rem;
-    margin: 1rem;
-    border-radius: 1rem;
-  }
-  .search_text{
-    font-size: 1rem;
-  }
-  .search_box {
-    margin-left: 4rem;
-    display: flex;
-    align-items: center;
-    background-color: #444;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid rgb(143, 142, 140);
-    width: 50%;
-  }
-  .Dotted_botton:hover{
-    cursor: pointer;
-  }
-  .Dotted_botton{
-    color: white;
-    font-size: 2rem;
-    margin: 0;
-  }
-  input[type="text"] {
-    background-color: transparent;
-    border: none;
-    color: white;
-    width: 100%;
-  }
+  padding: 16px;
+  background-color: #1d1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #333;
+  font-size: 1.5rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+.search_text {
+  font-size: 1rem;
+}
+.search_box {
+  margin-left: 4rem;
+  display: flex;
+  align-items: center;
+  background-color: #444;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgb(143, 142, 140);
+  width: 50%;
+}
+.Dotted_botton:hover {
+  cursor: pointer;
+}
+.Dotted_botton {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+}
+input[type="text"] {
+  background-color: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+}
 
-  .search_icon{
-    color: white;
-  }
-  
-  input[type="text"]::placeholder {
-    color: #bbb;
-  }
-  
-  .text-white {
-    color: white;
-  }
-  
-  .text-4xl {
-    font-size: 32px;
-  }
-  
-  .cursor-pointer {
-    cursor: pointer;
-  }
-  
-  input[type="text"]:focus {
-    outline: none;
- 
-  }
-  
-  .DashBoard_Section_container{
-    display: flex;
-    flex-direction: column;
-    
-  }
+.search_icon {
+  color: white;
+}
 
-  .playList_section{
-    width: 20x;
-    height: 40px;
-    background:rgb(48, 47, 47);
-  }
-  .popular_music_section{
-    width: 40x;
-    height: 70px;
-    background:rgb(48, 47, 47);
-  }
+input[type="text"]::placeholder {
+  color: #bbb;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-4xl {
+  font-size: 32px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.DashBoard_Section_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100vh;
+  padding: 20px;
+}
+
+.playList_section {
+  width: 38%;
+  height: 100vh;
+  background-color: #1d1c1c;
+  margin-right: 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.popular_music_section {
+  width: 60%;
+  height: 100vh;
+  background-color: #1d1c1c;
+  border-radius: 10px;
+}
+.popular_music_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  margin-bottom: 4rem;
+}
+#popula_music_text {
+  color: white;
+  margin-left: 28rem;
+  font-family: sans-serif;
+}
+
+.music_card {
+  width: 15rem;
+  height: 15rem;
+  background: #aba9a9;
+  margin-top: 1rem;
+  border-radius: 0.8rem;
+}
+
+.music_card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.card_container {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+}
+
+.artist_name {
+  font-size: 1rem;
+}
+
+.Recenty_played_section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+#Recenty_played_text{
+ color: white;
+  font-family: sans-serif;
+}
+
+.playList_section{
+  display: flex;
+  
+}
+
+.user_playlist{
+   
+  margin-top: 1rem;
+  border-radius: 0.8rem;
+  display: flex;
+  
+
+
+}
+
+.card_image{
+  width: 8rem;
+  height: 6rem;
+  border-radius: 0.6rem;
+  margin-left: 2rem;
+}
+
+.playlist_details{
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+  
+}
+.liked_songs_text{
+  margin-bottom: 1px;
+  color: white;
+}
+.playlist_songs{
+  margin-top: 1px;
+  color: #6b6969;
+}
+#playlist_text{
+  color: white;
+  margin: 1rem 2rem;
+  font-family: sans-serif;
+}
+
+#add_playlist_button{
+  font-size: 2rem;
+  color: white;
+  margin-right: 4rem;
+}
+
+.search_icon_playlist{
+  margin-left: 2rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
