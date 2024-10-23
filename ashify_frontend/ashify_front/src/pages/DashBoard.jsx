@@ -2,6 +2,8 @@ import React from "react";
 import { FaUser, FaSearch } from "react-icons/fa";
 import "../styles/dashboard.css";
 import card_image from "../assets/images/card_image.jpeg";
+import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
 
 const DashBoard = () => {
   return (
@@ -119,8 +121,23 @@ const DashBoard = () => {
               </div>
             </div>
           </div>
-          <div></div>
+          <div className="playing_music_section">
+            <div className="music_options">
+              <h2 className="playing_music_text">Just Dance</h2>
+              <RxCross1 className="close_music" />
+            </div>
+            <div className="playing_music_card"></div>
+            <div className="artist_deatails">
+              <h2 className="playing_music_name">just dance</h2>
+              <h1 id="artist_name">Yvan Bruvan</h1>
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="play_music_container">
+              
+          <img className="playing_music_image" src={card_image} alt="image_card" />
+      
       </div>
     </>
   );
@@ -128,9 +145,7 @@ const DashBoard = () => {
 
 const handle_play_music = () => {
   alert("u wanna play music");
-return (
-    <Display_music/>
-)
+  return <Display_music />;
 };
 
 const handle_playlist_search = () => {
