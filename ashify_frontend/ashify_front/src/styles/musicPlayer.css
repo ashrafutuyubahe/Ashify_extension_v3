@@ -1,0 +1,77 @@
+.music-player {
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+  justify-content: space-between;
+  }
+  
+  .album-art img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  
+  .song-info {
+    margin-left: 15px;
+  }
+  
+  .song-title {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .artist-name {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0 15px;
+  }
+  
+  .control-icon {
+    margin: 0 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .play-icon {
+    font-size: 24px;
+  }
+  
+  .time, .duration {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 5px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #1db954;
+  }
+  
+  .volume-fullscreen {
+    display: flex;
+    align-items: center;
+  }
+  
+  .volume-slider {
+    width: 80px;
+    margin: 0 8px;
+  }
+  

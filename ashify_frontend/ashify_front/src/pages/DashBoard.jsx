@@ -2,8 +2,10 @@ import React from "react";
 import { FaUser, FaSearch } from "react-icons/fa";
 import "../styles/dashboard.css";
 import card_image from "../assets/images/card_image.jpeg";
+import Maher_Zain_image from "../assets/images/video_image.png";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
+import MusicPlayer from "../components/musicPlayer";
 
 const DashBoard = () => {
   return (
@@ -93,30 +95,42 @@ const DashBoard = () => {
             <h3 id="popula_music_text">Popular Music</h3>
             <div className="popular_music_container">
               <div className="card_container">
-                <div onClick={handle_play_music} className="music_card"></div>
+                <div onClick={handle_play_music} className="music_card">
+                <img className="atist_image" src={Maher_Zain_image} alt="" />
+                </div>
                 <h5 className="artist_name">HEIS Rema</h5>
               </div>
               <div className="card_container">
-                <div className="music_card"></div>
+                <div className="music_card">
+                  <img className="atist_image" src={Maher_Zain_image} alt="" />
+                </div>
                 <h5 className="artist_name">Harris J.</h5>
               </div>
               <div className="card_container">
-                <div className="music_card"></div>
+                <div className="music_card">
+                  <img className="atist_image" src={Maher_Zain_image} alt="" />
+                </div>
                 <h5 className="artist_name">Maher Zain</h5>
               </div>
             </div>
             <div className="Recenty_played_section">
               <h3 id="Recenty_played_text">Recenty Played</h3>
               <div className="card_container">
-                <div className="music_card"></div>
+                <div className="music_card">
+                <img className="atist_image" src={Maher_Zain_image} alt="" />
+                </div>
                 <h5 className="artist_name">Harris J.</h5>
               </div>
               <div className="card_container">
-                <div className="music_card"></div>
+                <div className="music_card">
+                <img className="atist_image" src={Maher_Zain_image} alt="" />
+                </div>
                 <h5 className="artist_name">HEIS Rema</h5>
               </div>
               <div className="card_container">
-                <div className="music_card"></div>
+                <div className="music_card">
+                <img className="atist_image" src={Maher_Zain_image} alt="" />
+                </div>
                 <h5 className="artist_name">Maher Zain</h5>
               </div>
             </div>
@@ -135,9 +149,7 @@ const DashBoard = () => {
         </div>
       </div>
       <div className="play_music_container">
-              
-          <img className="playing_music_image" src={card_image} alt="image_card" />
-      
+        <MusicPlayer className="music_play_compone" />
       </div>
     </>
   );
