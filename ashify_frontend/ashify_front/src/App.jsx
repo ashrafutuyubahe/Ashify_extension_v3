@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import WelcomePage from './pages/welcome.jsx';
-import './App.css';
+
 import DashBoard from './pages/DashBoard.jsx';
 
 

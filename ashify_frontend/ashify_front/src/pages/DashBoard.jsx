@@ -3,6 +3,7 @@ import { FaUser, FaSearch } from "react-icons/fa";
 import "../styles/dashboard.css";
 import card_image from "../assets/images/card_image.jpeg";
 import Maher_Zain_image from "../assets/images/video_image.png";
+import Current_playing_image from "../assets/images/playing_music_image.png";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import MusicPlayer from "../components/musicPlayer";
@@ -35,7 +36,7 @@ const DashBoard = () => {
                   />
                 </div>
                 <div className="second_playlist_section">
-                  <span id="add_playlist_button">+</span>
+                  <span onClick={handle_show_addPlayList_Message} id="add_playlist_button">+</span>
                 </div>
               </div>
             </div>
@@ -137,10 +138,13 @@ const DashBoard = () => {
           </div>
           <div className="playing_music_section">
             <div className="music_options">
+              
               <h2 className="playing_music_text">Just Dance</h2>
               <RxCross1 className="close_music" />
             </div>
-            <div className="playing_music_card"></div>
+            <div className="playing_music_card">
+            <img className="atist_image" src={Current_playing_image} alt="" />
+            </div>
             <div className="artist_deatails">
               <h2 className="playing_music_name">just dance</h2>
               <h1 id="artist_name">Yvan Bruvan</h1>
@@ -163,4 +167,12 @@ const handle_play_music = () => {
 const handle_playlist_search = () => {
   alert("you wanna search playlist");
 };
+
+const handle_show_addPlayList_Message= ()=>{
+  return(
+    <div className="show_message">
+      <h3 style={{color:"white"}} onClick={hand_add_playlist}>Create Playlist</h3>
+    </div>
+  )
+}
 export default DashBoard;
