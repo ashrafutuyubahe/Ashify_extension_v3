@@ -15,7 +15,7 @@ function activate(context) {
                 enableScripts: true
             }
         );
-
+    
       
         const htmlFilePath = path.join(context.extensionPath, 'ashify_frontend', 'ashify_front', 'dist', 'index.html');
         let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
