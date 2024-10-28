@@ -32,4 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 .env
-/resource
+src/main/resource/applicatom.yml
