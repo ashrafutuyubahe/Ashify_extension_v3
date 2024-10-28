@@ -1,11 +1,11 @@
-package com.Ashify_extension.Ashify.Repository;
+// package com.Ashify_extension.Ashify.Repository;
 
-public class GetAccessToken {
+// public class GetAccessToken {
 
-    public String generateAccessToken() {
+//     public String generateAccessToken() {
 
        
 
-    }
+//     }
 
-}
+// }
