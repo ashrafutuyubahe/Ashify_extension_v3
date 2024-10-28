@@ -3,6 +3,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
+
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class})
 
 public class AshifyApplication {
@@ -12,6 +13,7 @@ public class AshifyApplication {
 		System.out.println("***********************************appp***************************** \n");
 		System.out.println("the application is running on tomcat server\n");
 		System.out.println("****************************************************************");
+		
 		
 	}
 
